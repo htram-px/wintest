@@ -73,10 +73,16 @@ jobs:
         fetch-depth: 0
 
     # Install the .NET Core workload
-    - name: Install .NET Core
+    #- name: Install .NET Core
+      #uses: actions/setup-dotnet@v4
+      #with:
+        #dotnet-version: 8.0.x
+
+    # Install the full .NET Framework
+    - name: Install .NET Framework
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.0.x
+          dotnet-version: '8.0.x'
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
@@ -97,7 +103,7 @@ jobs:
         Configuration: ${{ matrix.configuration }}
 
     - name: Publish .NET Desktop App
-      run: dotnet publish "TestApp\TestApp.csproj" --configuration Release --runtime win-x64 --output "publish"
+      run: msbuild publish "TestApp\TestApp.csproj" --configuration Release --runtime win-x64 --output "publish"
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
