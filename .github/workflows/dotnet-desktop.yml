@@ -102,13 +102,6 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
 
-    - name: Publish .NET Desktop App
-      run: msbuild publish "TestApp\TestApp.csproj" --configuration Release --runtime win-x64 --output "publish"
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: TestApp
-        path: publish
           
     # Decode the base 64 encoded pfx and save the Signing_Certificate
     #- name: Decode the pfx
