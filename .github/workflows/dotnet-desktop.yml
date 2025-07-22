@@ -102,14 +102,16 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
 
-    - name: Environment Variables
+    - name: Listing Environment Variables
       run: env
+      env:
+        Configuration: ${{ matrix.configuration }}
       
     - name: Build the Solution
       run: |
         msbuild.exe $env:Solution_Name /p:platform="Any CPU" /p:configuration=$env:Configuration
         env:
-        Configuration: ${{ matrix.configuration }}
+          Configuration: ${{ matrix.configuration }}
 
 
           
