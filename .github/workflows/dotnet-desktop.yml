@@ -114,7 +114,7 @@ jobs:
 
     # Let's look at our environment
     - name: Check file system after build
-      run: pwd; ls -R
+      run: ls -R
 
     # Remove the pfx
     #- name: Remove the pfx
