@@ -104,7 +104,7 @@ jobs:
 
     - name: Build the Solution
       run: |
-        msbuild.exe $env:Solution_Name /p:platform="Any CPU" /p:configuration="Release"
+        msbuild.exe $env:Solution_Name /p:platform="Any CPU" /p:configuration=$env:Configuration
 
 
           
