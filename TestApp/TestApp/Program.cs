@@ -12,7 +12,7 @@ namespace TestApp
         static void Main(string[] args)
         {
             Console.WriteLine($"Hello world");
-            Thread.Sleep(30 * 1000);
+            Thread.Sleep(30 * 1000;  // This should not work.
         }
     }
 }
