@@ -82,6 +82,10 @@ jobs:
     #- name: Execute unit tests
       #run: dotnet test
 
+    # Let's look at our environment
+    - name: Check file system
+      run: ls
+
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
