@@ -99,7 +99,7 @@ jobs:
     - name: Publish .NET Desktop App
       run: dotnet publish "TestApp\TestApp.csproj" --configuration Release --runtime win-x64 --output "publish"
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: TestApp
         path: publish
