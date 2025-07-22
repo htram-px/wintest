@@ -88,7 +88,7 @@ jobs:
 
     # Let's look at our environment
     - name: Check file system
-      run: ls .; ls TestApp; ls TestApp\bin\Debug; ls TestApp\bin\Release 
+      run: pwd; ls -R
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
