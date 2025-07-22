@@ -102,6 +102,11 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
 
+    - name: Build the Solution
+      run: |
+        msbuild.exe $env:Solution_Name /p:platform="Any CPU" /p:configuration="Release"
+
+
           
     # Decode the base 64 encoded pfx and save the Signing_Certificate
     #- name: Decode the pfx
