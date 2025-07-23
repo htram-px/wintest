@@ -148,7 +148,7 @@ jobs:
         Configuration: ${{ matrix.configuration }}
       uses: actions/upload-artifact@v4
       with:
-        name: My TestArtifact
+        name: MyTestArtifact.${{ env.Configuration }}.${{github.run_number}}
         path: TestApp\${{ env.Build_Outputs_Dir }}\${{ env.Configuration }}
         #path: ${{ env.Wap_Project_Directory }}\AppPackages
         
