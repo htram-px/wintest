@@ -134,7 +134,9 @@ jobs:
 
     # Let's look at folder with bits
     - name: Check build outputs
-      run: ls $env:Build_Outputs_Dir
+      run: ls $env:Build_Outputs_Dir\$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
 
     # Remove the pfx
     #- name: Remove the pfx
