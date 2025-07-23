@@ -149,6 +149,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: My TestArtifact
-        path: ${{ env.Build_Outputs_Dir }}\${{ env.Configuration }}
+        path: TestApp\${{ env.Build_Outputs_Dir }}\${{ env.Configuration }}
         #path: ${{ env.Wap_Project_Directory }}\AppPackages
         
