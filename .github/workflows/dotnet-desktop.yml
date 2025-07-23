@@ -58,6 +58,7 @@ jobs:
 
     env:
       Solution_Name: TestApp.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
+      Build_Outputs_Dir:  TestApp\TestApp\bin
       Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
       Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
       Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
@@ -91,10 +92,6 @@ jobs:
     # Execute all unit tests in the solution
     #- name: Execute unit tests
       #run: dotnet test
-
-    # Let's look at our environment
-    - name: Check file system
-      run: pwd; ls -R
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
@@ -135,6 +132,10 @@ jobs:
     - name: Check file system after build
       run: ls -R
 
+    # Let's look at folder with bits
+    - name: Check build outputs
+      run: ls $env:Build_Outputs_Dir
+
     # Remove the pfx
     #- name: Remove the pfx
       #run: Remove-Item -path $env:Wap_Project_Directory\GitHubActionsWorkflow.pfx
@@ -143,6 +144,7 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: Test Artifact
+        name: My TestArtifact
         path: $env:Solution_Name\bin\Release
         #path: ${{ env.Wap_Project_Directory }}\AppPackages
+        
